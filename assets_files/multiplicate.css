@@ -1,0 +1,39 @@
+.hero__content-wraper.multiplicate .hero__item-title {
+    font-size: 140px;
+    font-family: telefonica;
+    margin-top: 40px!important;
+    font-weight: 600
+}
+
+@media (max-width: 992px) {
+    .hero__content-wraper.multiplicate .hero__item-title {
+        font-size:80px
+    }
+}
+
+@media (max-width: 768px) {
+    .hero__content-wraper.multiplicate .hero__item-title {
+        font-size:60px;
+        margin-top: 40px
+    }
+}
+
+.hero__content-wraper.multiplicate img.multilogo {
+    margin-top: 40px
+}
+
+@media (max-width: 768px) {
+    .hero__content-wraper.multiplicate img.multilogo {
+        margin-top:20px
+    }
+}
+
+.hero__content-wraper.multiplicate img.wsap {
+    margin-top: 40px
+}
+
+@media (max-width: 768px) {
+    .hero__content-wraper.multiplicate img.wsap {
+        width:150px
+    }
+}

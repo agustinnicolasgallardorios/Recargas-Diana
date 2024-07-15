@@ -1,0 +1,98 @@
+@font-face {
+  font-family: Telefonica;
+  src: local("Telefonica Bold"),
+    url(fuentes/Telefonica-Boldd41d.eot?#iefix) format("embedded-opentype"),
+    url(fuentes/Telefonica-Bold.woff) format("woff"),
+    url(fuentes/Telefonica-Bold.ttf) format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: TelefonicaItalic;
+  src: local("Telefonica-regular-italic"),
+    url(fuentes/telefonica-regularitalic-webfontd41d.eot?#iefix)
+      format("embedded-opentype"),
+    url(fuentes/telefonica-regularitalic-webfont.woff2) format("woff2"),
+    url(fuentes/telefonica-regularitalic-webfont.woff) format("woff"),
+    url(fuentes/telefonica-regularitalic-webfont.ttf) format("truetype"),
+    url(fuentes/telefonica-regularitalic-webfont.html#telefonicaitalic)
+      format("svg");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: Telefonica;
+  src: local("Telefonica-Regular"),
+    url(fuentes/Telefonica-Regulard41d.eot?#iefix) format("embedded-opentype"),
+    url(fuentes/Telefonica-Regular.woff) format("woff"),
+    url(fuentes/Telefonica-Regular.ttf) format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: Telefonica;
+  src: local("Telefonica-Light"),
+    url(fuentes/Telefonica-Lightd41d.eot?#iefix) format("embedded-opentype"),
+    url(fuentes/Telefonica-Light.woff) format("woff"),
+    url(fuentes/Telefonica-Light.ttf) format("truetype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: Telefonica;
+  src: local("TelefonicaWeb-ExtraLight"),
+    url(fuentes/TelefonicaWeb-ExtraLightd41d.eot?#iefix)
+      format("embedded-opentype"),
+    url(fuentes/TelefonicaWeb-ExtraLight.woff) format("woff"),
+    url(fuentes/TelefonicaWeb-ExtraLight.ttf) format("truetype");
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: TelefonicaHand;
+  src: local("telefonica-hand-webfont"),
+    url(fuentes/telefonica-hand-webfontd41d.eot?#iefix)
+      format("embedded-opentype"),
+    url(fuentes/telefonica-hand-webfont.woff) format("woff"),
+    url(fuentes/telefonica-hand-webfont.ttf) format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: TelefonicaCap;
+  src: local("telefonicacap-regular-webfont"),
+    url(fuentes/telefonicacap-regular-webfontd41d.eot?#iefix)
+      format("embedded-opentype"),
+    url(fuentes/telefonicacap-regular-webfont.woff) format("woff"),
+    url(fuentes/telefonicacap-regular-webfont.ttf) format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: icomoon;
+  src: url(fuentes/icomoon3e43.eot?s16i6w#iefix) format("embedded-opentype"),
+    url(fuentes/icomoon3e43.ttf?s16i6w) format("truetype"),
+    url(fuentes/icomoon3e43.woff?s16i6w) format("woff"),
+    url(fuentes/icomoon3e43.svg?s16i6w#icomoon) format("svg");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Material Design Icons";
+  src: url(fuentes/materialdesignicons-webfontd41d.eot?#iefix&v=2.1.19)
+      format("embedded-opentype"),
+    url(fuentes/materialdesignicons-webfontb675.woff2?v=2.1.19) format("woff2"),
+    url(fuentes/materialdesignicons-webfontb675.woff?v=2.1.19) format("woff"),
+    url(fuentes/materialdesignicons-webfontb675.ttf?v=2.1.19) format("truetype"),
+    url(materialdesignicons-webfontb675.html?v=2.1.19#materialdesigniconsregular)
+      format("svg");
+  font-weight: 400;
+  font-style: normal;
+}

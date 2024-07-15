@@ -1,0 +1,120 @@
+if (!pnt) var pnt = {};
+if (!pnt.themeweb) pnt.themeweb = {};
+if (!pnt.themeweb.submenu) pnt.themeweb.submenu = {};
+
+pnt.themeweb.submenu.buttonTargetModal = null;
+pnt.themeweb.submenu.maxTabindex = 0;
+
+pnt.themeweb.submenu.flechaSVG = `<svg id="pnt-svg-flecha-atras" width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M16.0682 20.5C15.8365 20.5 15.6121 20.418 15.4414 20.2701L7.30762 13.2193C6.91739 12.88 6.89544 12.3109 7.25884 11.9466C7.27104 11.9329 7.28567 11.9216 7.3003 11.9079L15.4365 4.73644C15.8023 4.41088 16.3828 4.42226 16.734 4.76603C16.7413 4.77286 16.7486 4.77969 16.7535 4.78652C17.1023 5.15079 17.0779 5.70629 16.6998 6.04324L9.30996 12.559L16.695 18.9519C17.0754 19.282 17.1023 19.8443 16.7559 20.2086C16.5828 20.3907 16.3316 20.4977 16.0682 20.5Z" fill="white" /> </svg>`;
+pnt.themeweb.submenu.cerrarSVG = `<svg id="pnt-svg-cruz-cerrar" width="12" height="13" viewBox="0 0 12 13" fill="none" xmlns="http://www.w3.org/2000/svg"> <path fill-rule="evenodd" clip-rule="evenodd" d="M10.8413 12.353C11.1244 12.5684 11.5303 12.5469 11.7888 12.2883C12.0709 12.0062 12.0709 11.5489 11.7888 11.2668L7.02181 6.49981L11.7884 1.73317L11.8531 1.65921C12.0686 1.37609 12.047 0.970253 11.7884 0.711683C11.5064 0.429606 11.049 0.429606 10.767 0.711683L6.00032 5.47832L1.23343 0.711435L1.15946 0.646793C0.876348 0.431318 0.470511 0.452865 0.211941 0.711436C-0.0701356 0.993512 -0.0701359 1.45085 0.211941 1.73293L4.97883 6.49981L0.211557 11.2671L0.146915 11.341C-0.0685604 11.6242 -0.0470126 12.03 0.211558 12.2886C0.493634 12.5706 0.950971 12.5706 1.23305 12.2886L6.00032 7.5213L10.7673 12.2883L10.8413 12.353Z" fill="white" /> </svg>`;
+
+pnt.themeweb.submenu.inicializar = () => {
+  const isDesktop = window.innerWidth >= 768;
+  if (isDesktop) return;
+  
+  $(
+    ".pnt-contenedor-navbar .pnt-menu-navbar .pnt-bloque-central-menu .pnt-item-clickeable"
+  ).removeAttr("data-toggle");
+  $(".pnt-item-clickeable").on("click", function (event) {
+    pnt.themeweb.submenu.mostrarModal(event);
+  });
+};
+
+pnt.themeweb.submenu.ajustarTabIndexSubmenu = () => {
+  $("#pnt-modal-submenu .pnt-contenedor-flecha-atras button").attr(
+    "tabindex",
+    "1"
+  );
+  let i = 2;
+  $("#pnt-modal-submenu .pnt-dropdown-item, a[role='menuitem']").each(
+    function () {
+      $(this).attr("tabindex", i);
+      i++;
+    }
+  );
+  $("#pnt-modal-submenu button.close").attr("tabindex", i);
+  maxTabindex = i;
+};
+pnt.themeweb.submenu.mostrarModal = (event) => {
+  let target = event.target;
+  let titulo = "";
+  let submenu = "";
+  pnt.themeweb.submenu.buttonTargetModal = $(event.target);
+
+  if (target.tagName !== "svg") {
+    titulo = event.target.textContent;
+    submenu = $(event.target).next();
+  } else {
+    titulo = $(event.target).parent().text();
+    submenu = $(event.target).parent().next();
+    pnt.themeweb.submenu.buttonTargetModal = $(event.target).parent();
+  }
+
+  $("#navbarNavDropdown")
+    .parent()
+    .append(pnt.themeweb.submenu.armarModal(titulo.trim(), submenu.html()));
+
+  $(pnt.themeweb.submenu.buttonTargetModal).attr("aria-expanded", "true");
+
+  setTimeout(() => {
+    $("#pnt-modal-submenu").addClass("show");
+  }, 10);
+
+  setTimeout(() => {
+    $("#pnt-modal-submenu .pnt-contenedor-flecha-atras button").focus();
+    $("#navbarNavDropdown").addClass("d-none");
+    pnt.themeweb.submenu.ajustarTabIndexSubmenu();
+  }, 300);
+};
+
+pnt.themeweb.submenu.cerrarTodo = () => {
+  $("#pnt-modal-submenu").removeClass("show");
+  $("#navbarNavDropdown").removeClass("d-none");
+  $(pnt.themeweb.submenu.buttonTargetModal).attr("aria-expanded", "false");
+  setTimeout(() => {
+    $(pnt.themeweb.submenu.buttonTargetModal).focus();
+    $("#pnt-modal-submenu").remove();
+    $("#navbarNavDropdown").collapse("hide");
+  }, 300);
+};
+
+pnt.themeweb.submenu.cerrarModal = () => {
+  $("#navbarNavDropdown").removeClass("d-none");
+  $("#pnt-modal-submenu").removeClass("show");
+  $(pnt.themeweb.submenu.buttonTargetModal).attr("aria-expanded", "false");
+  setTimeout(() => {
+    $(pnt.themeweb.submenu.buttonTargetModal).focus();
+    $("#pnt-modal-submenu").remove();
+  }, 300);
+};
+pnt.themeweb.submenu.armarModal = (titulo, submenu) => {
+  const html = `
+  <div id="pnt-modal-submenu" tabindex="-1">
+    <div role="none" class="pnt-header-menu-mobile px-3">
+        <div class="pnt-contenedor-flecha-atras col-2 d-flex justify-content-start align-items-center px-0">
+          <button onclick="pnt.themeweb.submenu.cerrarModal(event)" aria-label="Volver">
+          ${pnt.themeweb.submenu.flechaSVG}
+          </button>
+        </div>
+        <div
+          class="col-8 text-center d-flex justify-content-center align-items-center"
+        >
+          <span role="none" aria-hidden="true">${titulo}</span>
+        </div>
+        <div
+          class="col-2 d-flex justify-content-end align-items-center px-0"
+        >
+          <button class="close" aria-label="Cerrar menú" onclick="pnt.themeweb.submenu.cerrarTodo()">
+          ${pnt.themeweb.submenu.cerrarSVG}
+          </button>
+        </div>
+      </div>
+      ${submenu}
+    </div>
+    `;
+  return html;
+};
+
+$(document).ready(function () {
+  pnt.themeweb.submenu.inicializar();
+});
